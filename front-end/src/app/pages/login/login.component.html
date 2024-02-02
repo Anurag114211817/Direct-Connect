@@ -1,0 +1,69 @@
+<div class="w-2/3 mx-auto">
+  <form
+    class="flex flex-col gap-4"
+    [class.submitted]="submitted"
+    [formGroup]="loginForm"
+    (submit)="login()"
+  >
+    <div class="text-xl font-semibold">Login</div>
+    <input
+      type="text"
+      class="border-2 rounded-lg border-teal-500 p-2"
+      placeholder="Email"
+      formControlName="email"
+      autocomplete="on"
+    />
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) &&
+          loginForm.hasError('required', 'email')
+        )
+      }"
+      >required field
+    </span>
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) &&
+          loginForm.hasError('email', 'email')
+        )
+      }"
+      >Invalid email
+    </span>
+    <input
+      type="password"
+      class="border-2 rounded-lg border-teal-500 p-2"
+      placeholder="Password"
+      formControlName="password"
+      autocomplete="on"
+    />
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (loginForm.get('password')?.dirty ||
+            loginForm.get('password')?.touched) &&
+          loginForm.hasError('required', 'password')
+        )
+      }"
+      >required field
+    </span>
+    <button
+      class="border-2 rounded-lg p-2 border-teal-500 text-teal-500 hover:bg-primary hover:text-white font-semibold"
+    >
+      Login
+    </button>
+  </form>
+  <p class="text-sm mt-4">
+    Don't have an account?
+    <span
+      class="underline text-cyan-500 font-bold cursor-pointer hover:text-teal-500"
+      (click)="toggle()"
+    >
+      signup now</span
+    >
+  </p>
+</div>

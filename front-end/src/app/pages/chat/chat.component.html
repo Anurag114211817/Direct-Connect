@@ -1,0 +1,11 @@
+<div class="bg-primary text-white py-2 px-6 flex items-center">
+    <img
+      src="{{ currentUser.picture.medium }}"
+      class="w-10 rounded-full"
+      alt="err"
+    />
+    <div class="text-lg ps-2 font-semibold">
+      <div>{{ currentUser.name.first }} {{ currentUser.name.last }}</div>
+      <div class="text-xs text-slate-100">{{ currentUser.login.username }}</div>
+    </div>
+</div>

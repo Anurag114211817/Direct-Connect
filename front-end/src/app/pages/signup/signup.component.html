@@ -1,0 +1,163 @@
+<div class="w-2/3 mx-auto">
+  <form
+    class="flex flex-col gap-4"
+    [class.submitted]="submitted"
+    [formGroup]="signupForm"
+    (submit)="signup()"
+    autocomplete="on"
+  >
+    <div class="text-xl font-semibold">Signup</div>
+    <input
+      type="text"
+      class="border-2 rounded-lg border-teal-500 p-2"
+      placeholder="First Name"
+      formControlName="firstName"
+    />
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (signupForm.get('firstName')?.dirty ||
+            signupForm.get('firstName')?.touched) &&
+          signupForm.hasError('required', 'firstName')
+        )
+      }"
+      >required field
+    </span>
+    <input
+      type="text"
+      class="border-2 rounded-lg border-teal-500 p-2"
+      placeholder="Last Name"
+      formControlName="lastName"
+    />
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (signupForm.get('lastName')?.dirty ||
+            signupForm.get('lastName')?.touched) &&
+          signupForm.hasError('required', 'lastName')
+        )
+      }"
+      >required field
+    </span>
+    <input
+      type="text"
+      class="border-2 rounded-lg border-teal-500 p-2"
+      placeholder="Username"
+      formControlName="username"
+    />
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (signupForm.get('username')?.dirty ||
+            signupForm.get('username')?.touched) &&
+          signupForm.hasError('required', 'username')
+        )
+      }"
+      >required field
+    </span>
+    <input
+      type="text"
+      class="border-2 rounded-lg border-teal-500 p-2"
+      placeholder="Email"
+      formControlName="email"
+    />
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (signupForm.get('email')?.dirty ||
+            signupForm.get('email')?.touched) &&
+          signupForm.hasError('required', 'email')
+        )
+      }"
+      >required field
+    </span>
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (signupForm.get('email')?.dirty ||
+            signupForm.get('email')?.touched) &&
+          signupForm.hasError('email', 'email')
+        )
+      }"
+      >Invalid email
+    </span>
+    <input
+      type="password"
+      class="border-2 rounded-lg border-teal-500 p-2"
+      placeholder="Password"
+      formControlName="password"
+      autocomplete="on"
+    />
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (signupForm.get('password')?.dirty ||
+            signupForm.get('password')?.touched) &&
+          signupForm.hasError('required', 'password')
+        )
+      }"
+      >required field
+    </span>
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (signupForm.get('password')?.dirty ||
+            signupForm.get('password')?.touched) &&
+          signupForm.hasError('pattern', 'password')
+        )
+      }"
+      >Password must contain lowercase, uppercase, numeric and special
+      characters.
+    </span>
+    <input
+      type="password"
+      class="border-2 rounded-lg border-teal-500 p-2"
+      placeholder="Confirm Password"
+      formControlName="confPassword"
+      autocomplete="on"
+    />
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (signupForm.get('confPassword')?.dirty ||
+            signupForm.get('confPassword')?.touched) &&
+          signupForm.hasError('required', 'confPassword')
+        )
+      }"
+      >required field
+    </span>
+    <span
+      class="text-red-600 text-xs select-none"
+      [ngClass]="{
+        hidden: !(
+          (signupForm.get('confPassword')?.dirty ||
+            signupForm.get('confPassword')?.touched) &&
+          signupForm.hasError('passwordMisMatch')
+        )
+      }"
+      >Password and Confirm Password didn't match.
+    </span>
+    <button
+      class="border-2 rounded-lg p-2 border-teal-500 text-teal-500 hover:bg-primary hover:text-white font-semibold"
+    >
+      Signup
+    </button>
+  </form>
+  <p class="text-sm mt-4">
+    Already have an account?
+    <span
+      class="underline text-cyan-500 font-bold cursor-pointer hover:text-teal-500"
+      (click)="toggle()"
+    >
+      login now</span
+    >
+  </p>
+</div>

@@ -1,0 +1,21 @@
+@for (item of user.recentContacts; track item.name.first) {
+
+<div class="grid grid-cols-12 hover:bg-[#fffb] hover:rounded-lg cursor-pointer" (click)="setCurrentChat(item)">
+  <div class="col-span-2 grid">
+    <img
+      src="{{ item.picture.thumbnail }}"
+      class="w-8 rounded-full place-self-center"
+      alt="err"
+    />
+  </div>
+  <div class="col-span-10 py-2 ps-2 border-b border-b-white">
+    <div class="test-sm">{{ item.name.first }} {{ item.name.last }}</div>
+    <div class="text-xs text-slate-600">{{ item.login.username }}</div>
+  </div>
+</div>
+
+} @empty {
+<div class="h-full w-full grid place-items-center">
+  <div class="text-lg">No Recent Contacts</div>
+</div>
+}

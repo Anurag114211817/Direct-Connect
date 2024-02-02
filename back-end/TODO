@@ -1,0 +1,17 @@
+Direct_connect:
+  Welcome to our Direct-Connect Chat App! 🚀 
+  Get ready to experience seamless and instant communication. 
+  Connect with friends, family, and colleagues in real-time. 
+  Your conversations, your way. Let the chatting begin! 🎉
+  
+Todos:
+  Back-end:
+    ✔ Add auth.
+    ✔ Add role.
+    ☐ Add refresh token.
+    ☐ Add route guard.
+    ☐ Add apis for getting user data.
+    ☐ Add apis for updating user data.
+    ☐ Add apis for admin user.
+    ☐ Add socket for communication
+    ☐ Add push notification.

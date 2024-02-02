@@ -1,0 +1,18 @@
+Direct_connect:
+  Welcome to our Direct-Connect Chat App! 🚀 
+  Get ready to experience seamless and instant communication. 
+  Connect with friends, family, and colleagues in real-time. 
+  Your conversations, your way. Let the chatting begin! 🎉
+  
+Todos:
+  Fornt-end:
+    ✔ Create Login page.
+    ✔ Create Home page.
+    ✔ Create page-not-found page.
+    ✔ Add route guard @low Admin left.
+    ☐ Add toast to the project.
+    ☐ Add login validations. eg invalid credantials in UI.
+    ☐ Add admin features like delete user, etc.
+    ☐ Create profile page.
+    ☐ Add Chat functionality.
+    ☐ Add push notification.

@@ -1,0 +1,40 @@
+<div class="bg-primary text-white h-svh flex flex-col gap-3 justify-start px-4">
+  <div class="flex justify-between items-center mt-1 min-h-8">
+    <div class="rounded-full overflow-hidden w-8">
+      @if (user.currentUser.email) {
+      <img [src]="user.currentUser.picture.thumbnail" class="w-8" alt="err" />
+      }
+    </div>
+    <div class="text-md font-semibold self-end">Direct_Connect</div>
+
+    <div class="has-tooltip text-sm cursor-pointer" (click)="logout()">
+      <span
+        class="tooltip rounded shadow-lg p-1 bg-[#fffb] text-black mt-8 -ml-5 text-xs" 
+        >Logout</span
+      >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="w-6 h-6 p-0.5 hover:bg-[#fffb] hover:stroke-black rounded-lg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
+        />
+      </svg>
+    </div>
+  </div>
+  <app-search />
+  <div class="bg-[#fffa] h-full rounded-lg mb-2 overflow-hidden text-black">
+    <div class="overflow-y-auto p-2 scroll-m-96 h-full relative">
+      <app-recent-contact />
+      @if (tertiaryLoader) {
+      <app-loader />
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="grid grid-cols-12 h-svh relative">
+  @if (auth) {
+  <div class="col-span-3">
+    <app-navbar />
+  </div>
+  } @else {
+  <div class="h-svh grid bg-primary px-12 text-white fixed w-2/3">
+    <div class="text-3xl mt-2 font-semibold">Direct_Connect</div>
+    <div class="pe-8 flex gap-4 flex-col">
+      <span class="text-4xl font-medium"
+        >Welcome to our Direct-Connect Chat App! 🚀</span
+      >
+      Get ready to experience seamless and instant communication. Connect with
+      friends, family, and colleagues in real-time. Your conversations, your
+      way. Let the chatting begin! 🎉
+      <p class="text-md"></p>
+    </div>
+  </div>
+  }
+  <div
+    [ngClass]="auth ? 'col-span-9' : 'col-start-9 col-span-4 grid py-6'"
+    [ngStyle]="(auth && style) || null"
+    class="relative"
+  >
+    <router-outlet></router-outlet>
+    @if (secondaryLoader) {
+    <app-loader />
+    }
+  </div>
+  @if (primaryLoader) {
+  <app-loader />
+  }
+</div>
