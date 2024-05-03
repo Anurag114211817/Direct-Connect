@@ -12,8 +12,9 @@ export class UserService {
   public recentContacts: User[] = [];
   public currentUser: User = {} as User;
 
-  constructor() {}
-
+  setCurrentUser(user: User): void {
+    this.currentUser = user;
+  }
   fetchCurrentUser() {
     this.http
       .get<RecentContact>('https://randomuser.me/api/?results=1&nat=in')
@@ -26,13 +27,13 @@ export class UserService {
   }
 
   fetchRecentContact() {
-    this.loader.showTertiaryLoader();
+    this.loader.showLoader('tertiary');
     this.http
       .get<RecentContact>('https://randomuser.me/api/?results=15&nat=in')
       .subscribe({
         next: (data) => (this.recentContacts = data?.results),
         error: (err) => console.log(err.message as Error),
-        complete: () => this.loader.hideTertiaryLoader(),
+        complete: () => this.loader.hideLoader('tertiary'),
       });
   }
 }

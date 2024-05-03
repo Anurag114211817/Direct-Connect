@@ -24,8 +24,8 @@ export class RecentContactComponent {
   }
 
   setCurrentChat(data: User) {
-    this.loader.showSecondaryLoader()
+    this.loader.showLoader('secondary')
     this.chat.setCurrentChat(data);
-    this.router.navigate([`chat/${btoa(data.id.value)}`]);
+    this.router.navigate([`chat`, btoa(data.id.value)]);
   }
 }

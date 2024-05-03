@@ -10,7 +10,7 @@ interface Info {
   version: string;
 }
 
-export interface User {
+export interface User extends Object {
   gender: string;
   name: Name;
   location: Location;

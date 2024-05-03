@@ -35,7 +35,3 @@
 .hover\:bg-primary:hover {
   @apply bg-gradient-to-tl from-teal-500 via-cyan-500 to-blue-500;
 }
-
-.bg-wallpaper {
-
-}

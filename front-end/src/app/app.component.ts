@@ -30,7 +30,7 @@ export class AppComponent {
   };
 
   ngOnInit() {
-    this.loader.showPrimaryLoader();
+    this.loader.showLoader('primary');
     this.userAuth.get$.subscribe((signal) => (this.auth = signal));
     this.loader.getPrimaryLoader$.subscribe(
       (signal) => (this.primaryLoader = signal)
@@ -38,6 +38,6 @@ export class AppComponent {
     this.loader.getSecondaryLoader$.subscribe(
       (signal) => (this.secondaryLoader = signal)
     );
-    setTimeout(() => this.loader.hidePrimaryLoader(), 500);
+    setTimeout(() => this.loader.hideLoader('primary'), 500);
   }
 }

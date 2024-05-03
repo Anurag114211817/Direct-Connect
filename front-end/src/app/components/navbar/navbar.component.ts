@@ -28,9 +28,9 @@ export class NavbarComponent {
   }
 
   logout() {
-    this.loader.showPrimaryLoader();
+    this.loader.showLoader('primary');
     this.userAuth.set(false);
     this.router.navigate(['/login']);
-    setTimeout(() => this.loader.hidePrimaryLoader(), 500);
+    setTimeout(() => this.loader.hideLoader('primary'), 500);
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { LoaderType } from '../dto/loaderDto';
 
 @Injectable({
   providedIn: 'root',
@@ -13,24 +14,35 @@ export class LoaderService {
   public getSecondaryLoader$ = this.secondaryLoader.asObservable();
   public getTertiaryLoader$ = this.tertiaryLoader.asObservable();
 
-  constructor() {}
+  showLoader(loaderType: LoaderType) {
+    switch (loaderType) {
+      case 'primary':
+        this.primaryLoader.next(true);
+        break;
+      case 'secondary':
+        this.secondaryLoader.next(true);
+        break;
+      case 'tertiary':
+        this.tertiaryLoader.next(true);
+        break;
+      default:
+        break;
+    }
+  }
 
-  showPrimaryLoader() {
-    this.primaryLoader.next(true);
-  }
-  showSecondaryLoader() {
-    this.secondaryLoader.next(true);
-  }
-  showTertiaryLoader() {
-    this.tertiaryLoader.next(true);
-  }
-  hidePrimaryLoader() {
-    this.primaryLoader.next(false);
-  }
-  hideSecondaryLoader() {
-    this.secondaryLoader.next(false);
-  }
-  hideTertiaryLoader() {
-    this.tertiaryLoader.next(false);
+  hideLoader(loaderType: LoaderType) {
+    switch (loaderType) {
+      case 'primary':
+        this.primaryLoader.next(false);
+        break;
+      case 'secondary':
+        this.secondaryLoader.next(false);
+        break;
+      case 'tertiary':
+        this.tertiaryLoader.next(false);
+        break;
+      default:
+        break;
+    }
   }
 }

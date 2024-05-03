@@ -32,16 +32,21 @@ export class LoginComponent {
   });
 
   login() {
-    this.loader.showPrimaryLoader();
     this.submitted = true;
     if (this.loginForm.valid) {
       this.userAuth.loginUser(this.loginForm.value).subscribe({
         next: (value) => {
           this.userAuth.set(true, (value as Response).data._id);
           this.resetForm();
-          this.router.navigate(['/home']);
+          this.router
+            .navigate(['/home'])
+            .then((navigate) =>
+              navigate ? this.loader.hideLoader('primary') : 
+              new Error('Something went wrong')
+            );
         },
         error: (err: Error) => {
+          this.loader.hideLoader('primary');
           console.log(
             '🚀 ~ LoginComponent ~ this.userAuth.registerUser ~ err:',
             err.message
@@ -49,7 +54,6 @@ export class LoginComponent {
         },
       });
     }
-    setTimeout(() => this.loader.hidePrimaryLoader(), 500);
   }
 
   toggle() {
