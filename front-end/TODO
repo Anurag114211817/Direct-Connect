@@ -5,13 +5,13 @@ Direct_connect:
   Your conversations, your way. Let the chatting begin! 🎉
   
 Todos:
-  Fornt-end:
+  Front-end:
     ✔ Create Login page.
     ✔ Create Home page.
     ✔ Create page-not-found page.
     ✔ Add route guard @low Admin left.
     ☐ Add toast to the project.
-    ☐ Add login validations. eg invalid credantials in UI.
+    ☐ Add login validations. eg invalid credentials in UI.
     ☐ Add admin features like delete user, etc.
     ☐ Create profile page.
     ☐ Add Chat functionality.
