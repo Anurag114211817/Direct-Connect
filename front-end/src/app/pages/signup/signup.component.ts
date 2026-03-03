@@ -12,11 +12,10 @@ import { Signup } from '../../modals/signup.modal';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-signup',
-  standalone: true,
-  imports: [ReactiveFormsModule, NgClass],
-  templateUrl: './signup.component.html',
-  styles: ``,
+    selector: 'app-signup',
+    imports: [ReactiveFormsModule, NgClass],
+    templateUrl: './signup.component.html',
+    styles: ``
 })
 export class SignupComponent {
   private readonly passwordRegex =

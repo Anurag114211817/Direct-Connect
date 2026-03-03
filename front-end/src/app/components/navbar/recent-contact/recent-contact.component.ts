@@ -7,11 +7,10 @@ import { UserService } from '../../../services/user.service';
 import { LoaderService } from '../../../services/loader.service';
 
 @Component({
-  selector: 'app-recent-contact',
-  standalone: true,
-  imports: [JsonPipe],
-  templateUrl: './recent-contact.component.html',
-  styles: ``,
+    selector: 'app-recent-contact',
+    imports: [JsonPipe],
+    templateUrl: './recent-contact.component.html',
+    styles: ``
 })
 export class RecentContactComponent {
   private router = inject(Router);

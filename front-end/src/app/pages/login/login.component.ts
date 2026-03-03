@@ -13,11 +13,10 @@ import { AuthService } from '../../services/auth.service';
 import { LoaderService } from '../../services/loader.service';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [ReactiveFormsModule, NgClass],
-  templateUrl: './login.component.html',
-  styles: ``,
+    selector: 'app-login',
+    imports: [ReactiveFormsModule, NgClass],
+    templateUrl: './login.component.html',
+    styles: ``
 })
 export class LoginComponent {
   private userAuth = inject(AuthService);

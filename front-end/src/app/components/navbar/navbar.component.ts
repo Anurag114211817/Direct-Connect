@@ -8,23 +8,20 @@ import { RecentContactComponent } from './recent-contact/recent-contact.componen
 import { SearchComponent } from './search/search.component';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [SearchComponent, RecentContactComponent, LoaderComponent],
-  templateUrl: './navbar.component.html',
-  styles: ``,
+    selector: 'app-navbar',
+    imports: [SearchComponent, RecentContactComponent, LoaderComponent],
+    templateUrl: './navbar.component.html',
+    styles: ``
 })
 export class NavbarComponent {
   private userAuth = inject(AuthService);
   private router = inject(Router);
   private loader = inject(LoaderService);
   user = inject(UserService);
-  tertiaryLoader = false;
+  public tertiaryLoader = this.loader.getLoader('tertiary')();
+  
   ngOnInit() {
     this.user.fetchCurrentUser();
-    this.loader.getTertiaryLoader$.subscribe({
-      next: (value) => (this.tertiaryLoader = value),
-    });
   }
 
   logout() {

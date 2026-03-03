@@ -7,11 +7,10 @@ import { ChatService } from '../../services/chat.service';
 import { LoaderService } from '../../services/loader.service';
 
 @Component({
-  selector: 'app-chat',
-  standalone: true,
-  imports: [AsyncPipe],
-  templateUrl: './chat.component.html',
-  styles: ``,
+    selector: 'app-chat',
+    imports: [AsyncPipe],
+    templateUrl: './chat.component.html',
+    styles: ``
 })
 export class ChatComponent implements OnInit, OnDestroy {
   private chat = inject(ChatService);

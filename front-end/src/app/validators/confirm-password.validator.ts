@@ -6,9 +6,11 @@ export function confirmPasswordValidator(controlName: string): ValidatorFn {
     const confirmPassword = control.get('confPassword');
 
     if (!password || !confirmPassword) {
-      return null; // Do nothing if controls are not available yet
+      return null;
     }
 
-    return password.value === confirmPassword.value ? null : { 'passwordMisMatch': true };
+    return password.value === confirmPassword.value
+      ? null
+      : { passwordMisMatch: true };
   };
 }
