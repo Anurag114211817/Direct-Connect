@@ -9,7 +9,6 @@ import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
   imports: [SearchComponent, RecentContactComponent, LoaderComponent],
   templateUrl: './navbar.component.html',
   styles: ``,
@@ -19,18 +18,16 @@ export class NavbarComponent {
   private router = inject(Router);
   private loader = inject(LoaderService);
   user = inject(UserService);
-  tertiaryLoader = false;
+  public tertiaryLoader = this.loader.getLoader('tertiary')();
+
   ngOnInit() {
     this.user.fetchCurrentUser();
-    this.loader.getTertiaryLoader$.subscribe({
-      next: (value) => (this.tertiaryLoader = value),
-    });
   }
 
   logout() {
     this.loader.showLoader('primary');
     this.userAuth.set(false);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
     setTimeout(() => this.loader.hideLoader('primary'), 500);
   }
 }

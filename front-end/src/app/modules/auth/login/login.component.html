@@ -14,22 +14,22 @@
       autocomplete="on"
     />
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) &&
           loginForm.hasError('required', 'email')
-        )
+        ),
       }"
       >required field
     </span>
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) &&
           loginForm.hasError('email', 'email')
-        )
+        ),
       }"
       >Invalid email
     </span>
@@ -41,13 +41,13 @@
       autocomplete="on"
     />
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (loginForm.get('password')?.dirty ||
             loginForm.get('password')?.touched) &&
           loginForm.hasError('required', 'password')
-        )
+        ),
       }"
       >required field
     </span>

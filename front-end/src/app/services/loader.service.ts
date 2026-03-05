@@ -1,48 +1,23 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { LoaderType } from '../dto/loaderDto';
+import { Injectable, signal } from '@angular/core';
+import { LoaderType } from '../dto/loader.dto';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class LoaderService {
-  private primaryLoader = new BehaviorSubject<boolean>(false);
-  private secondaryLoader = new BehaviorSubject<boolean>(false);
-  private tertiaryLoader = new BehaviorSubject<boolean>(false);
+  private loaders = {
+    primary: signal<boolean>(false),
+    secondary: signal<boolean>(false),
+    tertiary: signal<boolean>(false),
+  };
 
-  public getPrimaryLoader$ = this.primaryLoader.asObservable();
-  public getSecondaryLoader$ = this.secondaryLoader.asObservable();
-  public getTertiaryLoader$ = this.tertiaryLoader.asObservable();
+  public getLoader(type: LoaderType) {
+    return this.loaders[type].asReadonly();
+  }
 
   showLoader(loaderType: LoaderType) {
-    switch (loaderType) {
-      case 'primary':
-        this.primaryLoader.next(true);
-        break;
-      case 'secondary':
-        this.secondaryLoader.next(true);
-        break;
-      case 'tertiary':
-        this.tertiaryLoader.next(true);
-        break;
-      default:
-        break;
-    }
+    this.loaders[loaderType].set(true);
   }
 
   hideLoader(loaderType: LoaderType) {
-    switch (loaderType) {
-      case 'primary':
-        this.primaryLoader.next(false);
-        break;
-      case 'secondary':
-        this.secondaryLoader.next(false);
-        break;
-      case 'tertiary':
-        this.tertiaryLoader.next(false);
-        break;
-      default:
-        break;
-    }
+    this.loaders[loaderType].set(false);
   }
 }

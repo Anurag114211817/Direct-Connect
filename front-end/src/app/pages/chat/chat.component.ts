@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Subject } from 'rxjs';
 import { delay, takeUntil, tap } from 'rxjs/operators';
@@ -8,8 +7,6 @@ import { LoaderService } from '../../services/loader.service';
 
 @Component({
   selector: 'app-chat',
-  standalone: true,
-  imports: [AsyncPipe],
   templateUrl: './chat.component.html',
   styles: ``,
 })
@@ -26,7 +23,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         }),
         delay(500),
         tap(() => this.loader.hideLoader('secondary')),
-        takeUntil(this.destroy$)
+        takeUntil(this.destroy$),
       )
       .subscribe();
   }
