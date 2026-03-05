@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuard, loginGuard } from './guards/auth.guard';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -7,7 +7,7 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () =>
       import('./pages/home/home.component').then(
-        (module) => module.HomeComponent
+        (module) => module.HomeComponent,
       ),
     canActivate: [authGuard],
   },
@@ -15,31 +15,20 @@ export const routes: Routes = [
     path: 'chat/:id',
     loadComponent: () =>
       import('./pages/chat/chat.component').then(
-        (module) => module.ChatComponent
+        (module) => module.ChatComponent,
       ),
     canActivate: [authGuard],
   },
   {
-    path: 'login',
-    loadComponent: () =>
-      import('./pages/login/login.component').then(
-        (module) => module.LoginComponent
-      ),
-    canActivate: [loginGuard],
-  },
-  {
-    path: 'signup',
-    loadComponent: () =>
-      import('./pages/signup/signup.component').then(
-        (module) => module.SignupComponent
-      ),
-    canActivate: [loginGuard],
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.routes').then((m) => m.AUTH_ROUTES),
   },
   {
     path: '**',
     loadComponent: () =>
       import('./pages/page-not-found/page-not-found.component').then(
-        (module) => module.PageNotFoundComponent
+        (module) => module.PageNotFoundComponent,
       ),
     canActivate: [authGuard],
   },

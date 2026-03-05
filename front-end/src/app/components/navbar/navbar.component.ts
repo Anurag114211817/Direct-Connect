@@ -8,10 +8,10 @@ import { RecentContactComponent } from './recent-contact/recent-contact.componen
 import { SearchComponent } from './search/search.component';
 
 @Component({
-    selector: 'app-navbar',
-    imports: [SearchComponent, RecentContactComponent, LoaderComponent],
-    templateUrl: './navbar.component.html',
-    styles: ``
+  selector: 'app-navbar',
+  imports: [SearchComponent, RecentContactComponent, LoaderComponent],
+  templateUrl: './navbar.component.html',
+  styles: ``,
 })
 export class NavbarComponent {
   private userAuth = inject(AuthService);
@@ -19,7 +19,7 @@ export class NavbarComponent {
   private loader = inject(LoaderService);
   user = inject(UserService);
   public tertiaryLoader = this.loader.getLoader('tertiary')();
-  
+
   ngOnInit() {
     this.user.fetchCurrentUser();
   }
@@ -27,7 +27,7 @@ export class NavbarComponent {
   logout() {
     this.loader.showLoader('primary');
     this.userAuth.set(false);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
     setTimeout(() => this.loader.hideLoader('primary'), 500);
   }
 }

@@ -7,15 +7,15 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { confirmPasswordValidator } from '../../validators/confirm-password.validator';
-import { Signup } from '../../modals/signup.modal';
-import { AuthService } from '../../services/auth.service';
+import { Signup } from '../../../modals/signup.modal';
+import { AuthService } from '../../../services/auth.service';
+import { confirmPasswordValidator } from '../../../validators/confirm-password.validator';
 
 @Component({
-    selector: 'app-signup',
-    imports: [ReactiveFormsModule, NgClass],
-    templateUrl: './signup.component.html',
-    styles: ``
+  selector: 'app-signup',
+  imports: [ReactiveFormsModule, NgClass],
+  templateUrl: './signup.component.html',
+  styles: ``,
 })
 export class SignupComponent {
   private readonly passwordRegex =
@@ -53,13 +53,10 @@ export class SignupComponent {
       this.userAuth.registerUser(this.signupForm.value).subscribe({
         next: (_value) => {
           this.resetForm();
-          this.router.navigate(['login']);
+          this.router.navigate(['/auth/login']);
         },
         error: (err: Error) => {
-          console.log(
-            '🚀 ~ SignupComponent ~ this.auth.registerUser ~ err:',
-            err.message
-          );
+          console.log(err.message);
         },
       });
     }
@@ -67,7 +64,7 @@ export class SignupComponent {
 
   toggle() {
     this.resetForm();
-    this.router.navigate(['login']);
+    this.router.navigate(['/auth/login']);
   }
 
   resetForm() {

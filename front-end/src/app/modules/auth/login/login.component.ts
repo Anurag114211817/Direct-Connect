@@ -7,16 +7,16 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Login } from '../../modals/login.modal';
-import { Response } from '../../modals/user.modal';
-import { AuthService } from '../../services/auth.service';
-import { LoaderService } from '../../services/loader.service';
+import { Login } from '../../../modals/login.modal';
+import { Response } from '../../../modals/user.modal';
+import { AuthService } from '../../../services/auth.service';
+import { LoaderService } from '../../../services/loader.service';
 
 @Component({
-    selector: 'app-login',
-    imports: [ReactiveFormsModule, NgClass],
-    templateUrl: './login.component.html',
-    styles: ``
+  selector: 'app-login',
+  imports: [ReactiveFormsModule, NgClass],
+  templateUrl: './login.component.html',
+  styles: ``,
 })
 export class LoginComponent {
   private userAuth = inject(AuthService);
@@ -40,16 +40,14 @@ export class LoginComponent {
           this.router
             .navigate(['/home'])
             .then((navigate) =>
-              navigate ? this.loader.hideLoader('primary') : 
-              new Error('Something went wrong')
+              navigate
+                ? this.loader.hideLoader('primary')
+                : new Error('Something went wrong'),
             );
         },
         error: (err: Error) => {
           this.loader.hideLoader('primary');
-          console.log(
-            '🚀 ~ LoginComponent ~ this.userAuth.registerUser ~ err:',
-            err.message
-          );
+          console.log(err.message);
         },
       });
     }
@@ -57,7 +55,7 @@ export class LoginComponent {
 
   toggle() {
     this.resetForm();
-    this.router.navigate(['signup']);
+    this.router.navigate(['/auth/signup']);
   }
 
   resetForm() {
