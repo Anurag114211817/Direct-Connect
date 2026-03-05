@@ -22,7 +22,7 @@ export const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () =>
-      import('./modules/auth/auth.routes').then((m) => m.AUTH_ROUTES),
+      import('./pages/auth/auth.routes').then((m) => m.AUTH_ROUTES),
   },
   {
     path: '**',

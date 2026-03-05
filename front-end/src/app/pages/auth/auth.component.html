@@ -1,13 +1,15 @@
 <div class="grid grid-cols-12 min-h-lvh">
   <div
-    class="min-h-lvh grid gap-24 bg-primary px-12 text-white justify-between fixed w-8/12"
+    class="min-h-lvh flex flex-col bg-primary gap-56 px-12 text-white justify-center fixed w-8/12"
   >
-    <div class="text-3xl mt-4 font-semibold">{{ title }}</div>
+    <div class="text-[clamp(1rem,5vw,3.5rem)] font-semibold">
+      {{ title }}
+    </div>
     <div class="pe-8 flex gap-4 flex-col">
       <span class="text-4xl font-medium">{{ tagLine }}</span>
       <span class="text-lg">{{ subTagLine }}</span>
     </div>
-    <div class="text-3xl"></div>
+    <!-- <div class="text-3xl"></div> -->
   </div>
   <div class="relative grid py-6 col-start-9 col-span-4">
     <router-outlet></router-outlet>

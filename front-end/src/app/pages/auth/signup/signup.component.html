@@ -14,13 +14,13 @@
       formControlName="firstName"
     />
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (signupForm.get('firstName')?.dirty ||
             signupForm.get('firstName')?.touched) &&
           signupForm.hasError('required', 'firstName')
-        )
+        ),
       }"
       >required field
     </span>
@@ -31,13 +31,13 @@
       formControlName="lastName"
     />
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (signupForm.get('lastName')?.dirty ||
             signupForm.get('lastName')?.touched) &&
           signupForm.hasError('required', 'lastName')
-        )
+        ),
       }"
       >required field
     </span>
@@ -48,13 +48,13 @@
       formControlName="username"
     />
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (signupForm.get('username')?.dirty ||
             signupForm.get('username')?.touched) &&
           signupForm.hasError('required', 'username')
-        )
+        ),
       }"
       >required field
     </span>
@@ -65,24 +65,24 @@
       formControlName="email"
     />
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (signupForm.get('email')?.dirty ||
             signupForm.get('email')?.touched) &&
           signupForm.hasError('required', 'email')
-        )
+        ),
       }"
       >required field
     </span>
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (signupForm.get('email')?.dirty ||
             signupForm.get('email')?.touched) &&
           signupForm.hasError('email', 'email')
-        )
+        ),
       }"
       >Invalid email
     </span>
@@ -94,24 +94,24 @@
       autocomplete="on"
     />
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (signupForm.get('password')?.dirty ||
             signupForm.get('password')?.touched) &&
           signupForm.hasError('required', 'password')
-        )
+        ),
       }"
       >required field
     </span>
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (signupForm.get('password')?.dirty ||
             signupForm.get('password')?.touched) &&
           signupForm.hasError('pattern', 'password')
-        )
+        ),
       }"
       >Password must contain lowercase, uppercase, numeric and special
       characters.
@@ -124,24 +124,24 @@
       autocomplete="on"
     />
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (signupForm.get('confPassword')?.dirty ||
             signupForm.get('confPassword')?.touched) &&
           signupForm.hasError('required', 'confPassword')
-        )
+        ),
       }"
       >required field
     </span>
     <span
-      class="text-red-600 text-xs select-none"
+      class="text-red-600 text-xs select-none -mt-3"
       [ngClass]="{
         hidden: !(
           (signupForm.get('confPassword')?.dirty ||
             signupForm.get('confPassword')?.touched) &&
           signupForm.hasError('passwordMisMatch')
-        )
+        ),
       }"
       >Password and Confirm Password didn't match.
     </span>
